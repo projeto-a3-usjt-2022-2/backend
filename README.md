@@ -8,12 +8,15 @@
 
 
 <h4>Integrantes:</h4>
-<li>Andrey Strada     RA: 821116838</li>
-<li>Leonardo Martins  RA: 821131209</li>
-<li>Guilherme Mandri  RA: 821160431</li>
-<li>Guilherme Hais    RA: 821137127</li>
-<li>Guilherme Coelho  RA: 821161413</li>
-<li>Matheus Perez        RA: 821129320</li>
+
+| Nome             | Ra         |
+|------------------|------------|
+| Andrey Strada    | 821116838  |
+| Leonardo Martins | 821131209  |
+| Guilherme Mandri | 821160431  |
+| Guilherme Hais   | 821137127  |
+| Guilherme Coelho | 821161413  |
+| Matheus Perez    | 821129320  |
 
 <h4>Sepração de tarefas</h4>
 
