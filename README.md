@@ -1,5 +1,5 @@
 <h1 align="center">Sistemas Distribuídos & Mobile</h1>
-<h2>Usabilidade, Desenvolvimento Web, Mobile e Jogos</h2>
+<h2 align="right">Usabilidade, Desenvolvimento Web, Mobile e Jogos</h2>
 <br />
 
 <h3>Descrição do projeto:</h3>
