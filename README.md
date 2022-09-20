@@ -28,10 +28,11 @@
 <br />
 <h3 align="center">Prazo e entregas</h3>
 
-| Data  | Descrição                                                                                                                                                  | 
-|-------|------------------------------------------------------------------------------------------------------------------------------------------------------------|-
-| 26/09 | Implementação do primeiro microsserviço.                                                                                                                   | 
-| 10/10 | Implementação do segundo microsserviço. - “Esqueleto” inicial da aplicação Angular criado com o Angular CLI.                                               | 
-| 24/10 | Implementação de interface(s) gráfica(s) que dão acesso à funcionalidade implementada pelo primeiro microsserviço.  Implementação do barramento de eventos | 
-| 07/11 | Implementação de interface(s) gráfica(s) que dão acesso à funcionalidade implementada pelo segundo microsserviço.                                          | 
-| 21/11 | - Eventuais ajustes de implementações passadas.        
+
+| Data  | Descrição                                                                                                                                                  |
+|-------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 26/09 | Implementação do primeiro microsserviço.                                                                                                                   |
+| 10/10 | Implementação do segundo microsserviço. - “Esqueleto” inicial da aplicação Angular criado com o Angular CLI.                                               |
+| 24/10 | Implementação de interface(s) gráfica(s) que dão acesso à funcionalidade implementada pelo primeiro microsserviço.  Implementação do barramento de eventos |
+| 07/11 | Implementação de interface(s) gráfica(s) que dão acesso à funcionalidade implementada pelo segundo microsserviço.                                          |
+| 21/11 | - Eventuais ajustes de implementações passadas.       
