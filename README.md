@@ -6,8 +6,8 @@
 
 <p>Soluções computacionais que podem ser úteis para clínicas médicas. </p>
 
-<ul>Integrantes:</ul>
 
+<h4>Integrantes:</h4>
 <li>Andrey Strada     RA: 821116838</li>
 <li>Leonardo Martins  RA: 821131209</li>
 <li>Guilherme Mandri  RA: 821160431</li>
