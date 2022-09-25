@@ -1,8 +1,8 @@
-const express = require("express");
-
+import express from "express";
+import { Request, Response } from "express";
 const app = express();
 
-app.get("/", (req, res) => {
+app.get("/", (req: Request, res: Response) => {
   console.log("App is running");
 
   return res.json({ message: "Hello world!" });
