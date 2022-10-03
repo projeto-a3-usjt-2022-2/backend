@@ -7,4 +7,6 @@ export interface IUser {
   crm: null | string;
   email: string;
   password: string;
+  clinic: string;
+  modality?: string;
 }
