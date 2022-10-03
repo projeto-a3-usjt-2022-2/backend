@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { IUser } from "../interfaces";
+import { IConsult, IUser } from "../interfaces";
 
 export const validatedUser = (
   request: Request,
@@ -50,4 +50,36 @@ export const validatedUser = (
   }
 
   next();
+};
+
+export const validatedConsult = (
+  request: Request,
+  response: Response,
+  next: NextFunction
+) => {
+  const keyRequired = {
+    cep: "typeof string",
+    clinic: "typeof string",
+    date: "typeof string",
+    doctor: {
+      id: "typeof string",
+      name: "typeof string",
+    },
+    hour: "typeof string",
+    modality: "typeof string",
+    user: {
+      id: "typeof string",
+      name: "typeof string",
+    },
+  } as IConsult;
+
+  const { cep, clinic, date, doctor, hour, modality, user } =
+    request.body as IConsult;
+  if (!cep || !clinic || !date || !doctor || !hour || !modality || !user) {
+    return response.status(400).json({
+      error: "Invalid body arguments, verify all them",
+      example: keyRequired,
+    });
+  }
+  return next();
 };
