@@ -43,9 +43,39 @@ export const createConsult = async (request: Request, response: Response) => {
     .doc(consultInfo.clinic)
     .collection("Consults");
 
-  clinicsRef.add(consultInfo);
-  return response.status(200).json({
-    body: consultInfo,
-    clinicsRef: clinicsRef,
+  clinicsRef
+    .add(consultInfo)
+    .then(() => console.log("Consult created successfully"))
+    .catch(() =>
+      response.status(400).json({
+        error: "Something went wrong!",
+      })
+    );
+
+  const userId = consultInfo.user.id;
+
+  const usersRef = db
+    .collection("Clinics")
+    .doc(consultInfo.clinic)
+    .collection("Users");
+
+  const currentUser = usersRef.doc(userId);
+  let tmpConsult = {
+    date: consultInfo.date,
+    hour: consultInfo.hour,
+    modality: consultInfo.modality,
+  };
+
+  let currentUserData = (await currentUser.get()).data();
+
+  currentUser.update({
+    ...currentUserData,
+    consults: [...currentUserData?.consults, tmpConsult],
   });
+
+  return response.status(200).json(currentUser);
+  // return response.status(200).json({
+  //   body: consultInfo,
+  //   clinicsRef: clinicsRef,
+  // });
 };
