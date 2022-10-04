@@ -62,7 +62,7 @@ export const validatedConsult = (
     clinic: "typeof string",
     date: "typeof string",
     doctor: {
-      id: "typeof string",
+      crm: "typeof string",
       name: "typeof string",
     },
     hour: "typeof string",
