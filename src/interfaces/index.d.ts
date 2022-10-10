@@ -10,3 +10,13 @@ export interface IUser {
   clinic: string;
   modality?: string;
 }
+
+export interface IConsult {
+  clinic: string;
+  modality: string;
+  cep: string;
+  date: string;
+  hour: string;
+  doctor: { name: string; crm: string };
+  user: { name: string; id: string };
+}

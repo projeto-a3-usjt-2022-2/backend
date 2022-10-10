@@ -1,10 +1,12 @@
 import express from "express";
 import { getUser } from "../controllers/GET";
-import { createUser } from "../controllers/POST";
-import { validatedUser } from "../middlewares";
+import { createConsult, createUser } from "../controllers/POST";
+import { validatedConsult, validatedUser } from "../middlewares";
 
 export const router = express.Router();
 
 router.get("/users", getUser);
 
 router.post("/createUser", validatedUser, createUser);
+
+router.post("/createConsult", validatedConsult, createConsult);
