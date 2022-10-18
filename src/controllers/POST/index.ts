@@ -32,7 +32,7 @@ export const createUser = async (request: Request, response: Response) => {
       await db
         .collection("LogIn")
         .doc(id)
-        .set({ email: user.email, id, cpf: user.cpf })
+        .set({ email: user.email, id, cpf: user.cpf, password: user.password })
         .catch((error) => {
           return response
             .status(400)
@@ -91,9 +91,29 @@ export const createConsult = async (request: Request, response: Response) => {
     consults: [...currentUserData?.consults, tmpConsult],
   });
 
-  return response.status(200).json(currentUser);
-  // return response.status(200).json({
-  //   body: consultInfo,
-  //   clinicsRef: clinicsRef,
-  // });
+  return response.status(200);
+};
+
+export const verifyUserLogin = async (request: Request, response: Response) => {
+  const { cpf, password } = request.body;
+
+  if (!cpf || !password)
+    return response.status(400).json({
+      error: "Missing arguments!, cpf and password is required",
+    });
+
+  const user = await db.collection("LogIn").where("cpf", "==", cpf).get();
+
+  if (user.empty)
+    return response.status(400).json({
+      error: "User not found",
+    });
+
+  let result: any[] = [];
+
+  user.forEach((doc) => {
+    result.push(doc.data());
+  });
+
+  return response.status(200).json({ users: result });
 };
