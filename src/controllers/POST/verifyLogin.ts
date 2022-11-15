@@ -37,18 +37,22 @@ export const verifyUserLogin = async (request: Request, response: Response) => {
   }
 
   const verifyPassword = () => {
-    let samePassword = result.map((user) => {
+    let samePassword = result
+      .map((user) => {
+        return user.password === password ? true : false;
+      })
+      .filter((item) => item);
 
-      return user.password === password ? true : false;
-    }).filter((item) => item);
-    
-    console.log('this is the result', samePassword);
-    
-    if(samePassword.length === 0)return response.status(400).json({message: 'please, check your password and try again!'})
-    return response.status(200).json({ users: result });
-  
+    console.log("this is the result", result);
+
+    let { email, cpf, clinic, id } = result[0];
+
+    if (samePassword.length === 0)
+      return response
+        .status(400)
+        .json({ message: "please, check your password and try again!" });
+    return response.status(200).json({ data: { email, cpf, clinic, id } });
   };
 
   verifyPassword();
-
 };

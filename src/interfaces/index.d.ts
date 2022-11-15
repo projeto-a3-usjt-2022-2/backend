@@ -9,6 +9,7 @@ export interface IUser {
   password: string;
   clinic: string;
   modality?: string;
+  doctorSchedule?: string[];
 }
 
 export interface IConsult {
