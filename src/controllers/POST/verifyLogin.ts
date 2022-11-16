@@ -45,13 +45,15 @@ export const verifyUserLogin = async (request: Request, response: Response) => {
 
     console.log("this is the result", result);
 
-    let { email, cpf, clinic, id } = result[0];
+    let { email, cpf, clinic, id, name } = result[0];
 
     if (samePassword.length === 0)
       return response
         .status(400)
         .json({ message: "please, check your password and try again!" });
-    return response.status(200).json({ data: { email, cpf, clinic, id } });
+    return response
+      .status(200)
+      .json({ data: { email, cpf, clinic, id, name } });
   };
 
   verifyPassword();

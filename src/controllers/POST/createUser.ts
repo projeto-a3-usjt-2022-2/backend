@@ -51,7 +51,9 @@ export const createUser = async (request: Request, response: Response) => {
           });
         });
     })
-    .catch(() =>
-      response.status(401).json({ error: "Error, user was not created" })
-    );
+    .catch((err: any) => {
+      console.log(err);
+
+      response.status(401).json({ error: "Error, user was not created" });
+    });
 };
