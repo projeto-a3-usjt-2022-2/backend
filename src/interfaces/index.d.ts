@@ -15,9 +15,21 @@ export interface IUser {
 export interface IConsult {
   clinic: string;
   modality: string;
-  cep: string;
   date: string;
   hour: string;
-  doctor: { name: string; crm: string };
-  user: { name: string; id: string };
+  doctorId: string;
+  userId: string;
+}
+
+export interface IAvaliableSchedule {
+  doctorId: string;
+  clinic: string;
+  doctorSchedule: any[];
+  date: string;
+}
+
+export interface IGetConsults {
+  clinic: string;
+  userId: string;
+  crm: string | null;
 }
