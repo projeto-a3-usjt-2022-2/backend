@@ -36,6 +36,8 @@ export const verifyUserLogin = async (request: Request, response: Response) => {
     });
   }
 
+  console.log(result);
+
   const verifyPassword = () => {
     let samePassword = result
       .map((user) => {
@@ -45,7 +47,7 @@ export const verifyUserLogin = async (request: Request, response: Response) => {
 
     console.log("this is the result", result);
 
-    let { email, cpf, clinic, id, name } = result[0];
+    let { email, cpf, clinic, id, name, crm } = result[0];
 
     if (samePassword.length === 0)
       return response
@@ -53,7 +55,7 @@ export const verifyUserLogin = async (request: Request, response: Response) => {
         .json({ message: "please, check your password and try again!" });
     return response
       .status(200)
-      .json({ data: { email, cpf, clinic, id, name } });
+      .json({ data: { email, cpf, clinic, id, name, crm } });
   };
 
   verifyPassword();
