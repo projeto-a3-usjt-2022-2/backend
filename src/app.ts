@@ -3,8 +3,10 @@ import cors from "cors";
 
 import { router } from "./routes";
 import { checkAuth } from "./middlewares/checkAuth";
+import { receiveAllConsults } from "./controllers/queue/receiveAllConsults";
 const app = express();
 
+receiveAllConsults();
 app.use(express.json());
 app.use(cors());
 app.use(router);
