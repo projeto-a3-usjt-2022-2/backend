@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { IConsult, IUser } from "../interfaces";
+import { IConsult, IGetConsults, IUser } from "../interfaces";
 
 export const validatedUser = (
   request: Request,
@@ -61,25 +61,43 @@ export const validatedConsult = (
     cep: "typeof string",
     clinic: "typeof string",
     date: "typeof string",
-    doctor: {
-      crm: "typeof string",
-      name: "typeof string",
-    },
     hour: "typeof string",
     modality: "typeof string",
-    user: {
-      id: "typeof string",
-      name: "typeof string",
-    },
+    doctorId: "typeof string",
+    userId: "typeof string",
   } as IConsult;
 
-  const { cep, clinic, date, doctor, hour, modality, user } =
+  const { clinic, date, doctorId, hour, modality, userId } =
     request.body as IConsult;
-  if (!cep || !clinic || !date || !doctor || !hour || !modality || !user) {
+  if (!clinic || !date || !doctorId || !hour || !modality || !userId) {
     return response.status(400).json({
       error: "Invalid body arguments, verify all them",
       example: keyRequired,
     });
   }
+  return next();
+};
+
+export const validateGetConsults = (
+  request: Request,
+  response: Response,
+  next: NextFunction
+) => {
+  const { clinic, crm, userId } = request.body as unknown as IGetConsults;
+
+  let requiredKeys = {
+    clinic: "typeof string",
+    crm: "typeof string | null",
+    schedule: "typeof string[] | undefined",
+    userId: "typeof string",
+  };
+
+  if (!clinic || !userId) {
+    return response.status(400).json({
+      error: "Invalid body arguments, verify all them",
+      example: requiredKeys,
+    });
+  }
+
   return next();
 };
