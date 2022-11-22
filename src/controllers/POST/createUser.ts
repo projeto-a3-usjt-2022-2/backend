@@ -38,6 +38,7 @@ export const createUser = async (request: Request, response: Response) => {
           password: user.password,
           crm: user.crm,
           clinic: user.clinic,
+          name: user.name,
         })
         .catch((error) => {
           return response
@@ -47,7 +48,14 @@ export const createUser = async (request: Request, response: Response) => {
         .then(() => {
           return response.status(200).json({
             message: "User created successfully!",
-            data: { email: user.email, cpf: user.cpf, clinic: user.clinic, id },
+            data: {
+              email: user.email,
+              cpf: user.cpf,
+              clinic: user.clinic,
+              id,
+              crm: user.crm,
+              name: user.name,
+            },
           });
         });
     })
